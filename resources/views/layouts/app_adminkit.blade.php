@@ -41,7 +41,7 @@
 
 					<li class="sidebar-item {{ Route::is('masjid.*') ? 'active' : '' }}">
 						<a class="sidebar-link" href="{{ route('masjid.create') }}">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Data Masjid</span>
+              <i class="align-middle" data-feather="database"></i> <span class="align-middle">Data Masjid</span>
             </a>
 					</li>
 
@@ -279,7 +279,7 @@
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Ubah Profile</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="{{ route('logout-user') }}">Log out</a>
+								<a class="dropdown-item" href="{{ route('logout-user') }}"><i class="align-middle me-1" data-feather="log-out"></i>Log out</a>
 							</div>
 						</li>
 					</ul>
