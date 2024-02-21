@@ -14,7 +14,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
 
-	<title>Blank Page | AdminKit Demo</title>
+	<title>{{ $title ?? '' }} :: E-Masjid</title>
 	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('adminkit/css/app.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -30,16 +30,16 @@
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						Pages
+						Menu Utama
 					</li>
 
-					<li class="sidebar-item active">
+					<li class="sidebar-item {{ Route::is('home') ? 'active' : '' }}">
 						<a class="sidebar-link" href="{{ route('home') }}">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Beranda</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
+					<li class="sidebar-item {{ Route::is('masjid.*') ? 'active' : '' }}">
 						<a class="sidebar-link" href="{{ route('masjid.create') }}">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Data Masjid</span>
             </a>
@@ -274,14 +274,10 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="{{ asset('images/avatar.png') }}" class="avatar img-fluid rounded me-1" alt="{{ auth()->user()->name }}" /> <span class="text-dark">{{ auth()->user()->name }}</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Ubah Profile</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="{{ route('logout-user') }}">Log out</a>
 							</div>
