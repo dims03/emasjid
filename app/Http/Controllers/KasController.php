@@ -13,10 +13,10 @@ class KasController extends Controller
      */
     public function index()
     {
-        $data = Kas::all();
+        $kas = Kas::latest()->paginate(10);
         return view('kas_index', [
             'title' => 'Data Kas',
-        ], compact('data'));
+        ], compact('kas'));
     }
 
     /**
@@ -24,11 +24,11 @@ class KasController extends Controller
      */
     public function create()
     {
-        $data = new Kas();
+        $kas = new Kas();
 
         return view('kas_form', [
             'title' => 'Form Kas'
-        ], compact('data'));
+        ], compact('kas'));
     }
 
     /**
@@ -36,7 +36,19 @@ class KasController extends Controller
      */
     public function store(StoreKasRequest $request)
     {
-        //
+        $request->validate([
+            'tanggal' => 'required|date',
+            'kategori' => 'nullable',
+            'keterangan' => 'required',
+            'jenis' => 'required|in:masuk,keluar',
+            'jumlah' => 'required|numeric',
+        ]);
+
+        $kas = Kas::create($request->all());
+        $kas->saldo_akhir = $this->calculateSaldoAkhir($kas->tanggal);
+        $kas->save();
+
+        return redirect()->route('kas_index')->with('success', 'Data berhasil ditambahkan.');
     }
 
     /**

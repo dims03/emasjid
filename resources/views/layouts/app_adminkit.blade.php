@@ -36,8 +36,7 @@
 
                     <li class="sidebar-item {{ Route::is('home') ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{ route('home') }}">
-                            <i class="align-middle" data-feather="home"></i> <span
-                                class="align-middle">Beranda</span>
+                            <i class="align-middle" data-feather="home"></i> <span class="align-middle">Beranda</span>
                         </a>
                     </li>
 
@@ -50,7 +49,8 @@
 
                     <li class="sidebar-item {{ Route::is('kas.*') ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{ route('kas.index') }}">
-                            <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Kas Masjid</span>
+                            <i class="align-middle" data-feather="book-open"></i> <span class="align-middle">Kas
+                                Masjid</span>
                         </a>
                     </li>
 
@@ -292,6 +292,15 @@
             <main class="content">
                 <div class="container-fluid p-0">
                     @include('flash::message')
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     @yield('content')
 
                 </div>

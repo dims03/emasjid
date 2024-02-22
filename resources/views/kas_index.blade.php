@@ -26,7 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $k)
+                            @foreach ($kas as $k)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $k->masjid_id }}</td>
@@ -50,6 +50,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                {{ $kas->links() }}
                 </div>
             </div>
         </div>
