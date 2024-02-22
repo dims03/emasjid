@@ -14,7 +14,9 @@ class KasController extends Controller
     public function index()
     {
         $data = Kas::all();
-        return view('kas_index', compact('data'));
+        return view('kas_index', [
+            'title' => 'Data Kas',
+        ], compact('data'));
     }
 
     /**
@@ -22,7 +24,11 @@ class KasController extends Controller
      */
     public function create()
     {
-        return view('kas.create');
+        $data = new Kas();
+
+        return view('kas_form', [
+            'title' => 'Form Kas'
+        ], compact('data'));
     }
 
     /**

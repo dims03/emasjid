@@ -6,10 +6,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="card-header"><h2>Data Kas</h2></div>
             <div class="card">
-                <div class="card-header">Data Kas</div>
                 <div class="card-body">
-                    <a href="{{ route('kas.create') }}" class="btn btn-primary mb-3">Create New Kas Entry</a>
+                    <a href="{{ route('kas.create') }}" class="btn btn-primary mb-3">Tambah Data Kas</a>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
