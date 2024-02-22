@@ -13,7 +13,8 @@ class KasController extends Controller
      */
     public function index()
     {
-        //
+        $data = Kas::all();
+        return view('kas_index', compact('data'));
     }
 
     /**
@@ -21,7 +22,7 @@ class KasController extends Controller
      */
     public function create()
     {
-        //
+        return view('kas.create');
     }
 
     /**
