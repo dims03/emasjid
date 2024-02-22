@@ -8,7 +8,9 @@ class UserProfilController extends Controller
 {
     public function edit($id)
     {
-        return view('userprofil_edit');
+        return view('userprofil_edit', [
+            'title' => 'Form Edit User',
+        ]);
     }
 
     public function update(Request $request, $id)
