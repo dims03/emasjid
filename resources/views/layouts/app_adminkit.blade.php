@@ -277,7 +277,7 @@
                 <img src="{{ asset('images/avatar.png') }}" class="avatar img-fluid rounded me-1" alt="{{ auth()->user()->name }}" /> <span class="text-dark">{{ auth()->user()->name }}</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Ubah Profile</a>
+								<a class="dropdown-item" href="{{ route('userprofil.edit', 0) }}"><i class="align-middle me-1" data-feather="user"></i> Ubah Profile</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="{{ route('logout-user') }}"><i class="align-middle me-1" data-feather="log-out"></i>Log out</a>
 							</div>
